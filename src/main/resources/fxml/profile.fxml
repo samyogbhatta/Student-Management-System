@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox fx:id="profileContainer" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ProfileController">
+    <children>
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2);">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+            <children>
+                <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 8 15; -fx-cursor: hand;" text="← Back" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label style="-fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold;" text="👤 Student Profile" />
+                <Region maxWidth="50" HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+
+        <!-- Main Content with ScrollPane for better responsiveness -->
+        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: #f8f9fa; -fx-background: #f8f9fa; -fx-border-color: #f8f9fa;" VBox.vgrow="ALWAYS">
+            <content>
+                <StackPane alignment="CENTER" style="-fx-background-color: #f8f9fa;">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <children>
+                        <VBox alignment="CENTER" maxWidth="600" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                            <padding>
+                                <Insets bottom="25" left="25" right="25" top="25" />
+                            </padding>
+
+                            <children>
+                                <!-- Profile Header -->
+                                <VBox alignment="CENTER" spacing="10.0">
+                                    <children>
+                                        <StackPane>
+                                            <Circle fill="linear-gradient(to bottom, #667eea, #764ba2)" radius="40.0" />
+                                            <Label style="-fx-font-size: 30px; -fx-text-fill: white;" text="👤" />
+                                        </StackPane>
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Edit Profile Information" />
+                                        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Update your personal details below" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Form Fields -->
+                                <VBox spacing="15.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <GridPane hgap="15" vgap="15">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                            </columnConstraints>
+
+                                            <!-- Row 1 -->
+                                            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold; -fx-font-size: 13px;" text="Student ID" />
+                                                <TextField fx:id="studentIdField" prefHeight="27.0" prefWidth="127.0" promptText="Student ID (Read-only)" style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10; -fx-font-size: 13px;" />
+                                            </VBox>
+
+                                            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold; -fx-font-size: 13px;" text="Full Name" />
+                                                <TextField fx:id="nameField" promptText="Enter your full name" style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10; -fx-font-size: 13px;" />
+                                            </VBox>
+
+                                            <!-- Row 2 -->
+                                            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold; -fx-font-size: 13px;" text="Email Address" />
+                                                <TextField fx:id="emailField" promptText="Enter your email address" style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10; -fx-font-size: 13px;" />
+                                            </VBox>
+
+                                            <!-- Row 3 -->
+                                            <VBox spacing="5.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold; -fx-font-size: 13px;" text="Program" />
+                                                <TextField fx:id="programField" promptText="Enter your program" style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10; -fx-font-size: 13px;" />
+                                            </VBox>
+
+                                            <VBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold; -fx-font-size: 13px;" text="Current Semester" />
+                                                <TextField fx:id="semesterField" promptText="Enter current semester" style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10; -fx-font-size: 13px;" />
+                                            </VBox>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                 </rowConstraints>
+                                        </GridPane>
+
+                                        <HBox alignment="CENTER" spacing="10.0" style="-fx-padding: 15 0 5 0;">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#handleSave" style="-fx-background-color: linear-gradient(to right, #27ae60, #2ecc71); -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 10 20; -fx-font-weight: bold; -fx-cursor: hand; -fx-font-size: 13px;" text="💾 Save Changes" />
+                                                <Button mnemonicParsing="false" onAction="#handleReset" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-size: 13px;" text="🔄 Reset" />
+                                                <Button mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-size: 13px;" text="Cancel" />
+                                            </children>
+                                        </HBox>
+
+                                        <Label fx:id="messageLabel" alignment="CENTER" maxWidth="Infinity" style="-fx-font-size: 13px; -fx-padding: 5 0 0 0;" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>

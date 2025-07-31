@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="registrationContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.CourseRegistrationController">
+    <children>
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); -fx-padding: 25;">
+            <children>
+                <Button mnemonicParsing="false" onAction="#handleBack" text="← Back"
+                        style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 10 20; -fx-cursor: hand;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="📚 Course Registration" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+            </children>
+        </HBox>
+
+        <!-- Main Content -->
+        <VBox style="-fx-background-color: #f8f9fa; -fx-padding: 40;">
+            <children>
+                <!-- Instructions -->
+                <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                    <children>
+                        <HBox spacing="15.0" alignment="CENTER">
+                            <children>
+                                <Label text="📋" style="-fx-font-size: 28px;"/>
+                                <VBox spacing="5.0">
+                                    <children>
+                                        <Label text="Available Courses" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                                        <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                            <children>
+                                                <Label text="Total available courses:" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                                                <Label fx:id="availableCountLabel" text="0" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <Label text="Select a course from the list below and click register to enroll. Maximum 20 credits allowed." style="-fx-font-size: 16px; -fx-text-fill: #7f8c8d;"/>
+                    </children>
+                </VBox>
+
+                <Region prefHeight="25.0"/>
+
+                <!-- Courses List -->
+                <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                    <children>
+                        <Label text="Course Selection" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <ListView fx:id="availableCoursesListView" prefHeight="380.0"
+                                  style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-border-color: #e9ecef; -fx-border-radius: 10;"/>
+
+                        <!-- Action Buttons -->
+                        <HBox spacing="20.0" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#handleRegister" text="✅ Register for Course"
+                                        style="-fx-background-color: linear-gradient(to right, #27ae60, #2ecc71); -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 15 30; -fx-font-weight: bold; -fx-cursor: hand; -fx-font-size: 16px;"/>
+                                <Button mnemonicParsing="false" onAction="#handleViewDetails" text="📋 View Details"
+                                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 15 30; -fx-cursor: hand; -fx-font-size: 16px;"/>
+                                <Button mnemonicParsing="false" onAction="#handleBack" text="Cancel"
+                                        style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 15 30; -fx-cursor: hand; -fx-font-size: 16px;"/>
+                            </children>
+                        </HBox>
+
+                        <Label fx:id="messageLabel" alignment="CENTER" maxWidth="Infinity" style="-fx-font-size: 16px; -fx-padding: 15 0 0 0;"/>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

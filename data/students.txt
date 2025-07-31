@@ -1,0 +1,5 @@
+STUDENT_INFO:ST2025001,Samyog Bhatta,samyog2080-0195@iimscollege.edu.np,Computer Science,6th Semester
+REGISTERED_COURSES:
+CS101
+CS301
+CS401

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+
+<?import javafx.scene.shape.Circle?>
+<VBox fx:id="dashboardContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.DashboardController">
+    <children>
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); -fx-padding: 25;">
+            <children>
+                <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="welcomeLabel" text="Welcome, Student!" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                        <Label fx:id="statsLabel" text="Statistics" style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 16px;"/>
+                    </children>
+                </VBox>
+                <HBox spacing="15.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#handleRefresh" text="🔄 Refresh"
+                                style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 10 20; -fx-cursor: hand;"/>
+                        <Button mnemonicParsing="false" onAction="#handleLogout" text="🚪 Logout"
+                                style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 20; -fx-padding: 10 20; -fx-cursor: hand;"/>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+
+        <!-- Main Content -->
+        <HBox spacing="40.0" style="-fx-background-color: #f8f9fa; -fx-padding: 40;">
+            <children>
+                <!-- Navigation Cards -->
+                <VBox spacing="25.0" prefWidth="350.0">
+                    <children>
+                        <Label text="📋 Quick Actions" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+                        <!-- Profile Card -->
+                        <Button mnemonicParsing="false" onAction="#handleProfile" maxWidth="Infinity" alignment="CENTER_LEFT"
+                                style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-border-width: 0; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                            <graphic>
+                                <HBox spacing="20.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <StackPane>
+                                            <Circle fill="#3498db" radius="25.0"/>
+                                            <Label text="👤" style="-fx-font-size: 20px; -fx-text-fill: white;"/>
+                                        </StackPane>
+                                        <VBox spacing="4.0">
+                                            <children>
+                                                <Label text="View Profile" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                                                <Label text="Update your personal information" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </graphic>
+                        </Button>
+
+                        <!-- Register Course Card -->
+                        <Button mnemonicParsing="false" onAction="#handleRegisterCourse" maxWidth="Infinity" alignment="CENTER_LEFT"
+                                style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-border-width: 0; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                            <graphic>
+                                <HBox spacing="20.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <StackPane>
+                                            <Circle fill="#e74c3c" radius="25.0"/>
+                                            <Label text="➕" style="-fx-font-size: 20px; -fx-text-fill: white;"/>
+                                        </StackPane>
+                                        <VBox spacing="4.0">
+                                            <children>
+                                                <Label text="Register Course" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                                                <Label text="Enroll in new courses" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </graphic>
+                        </Button>
+
+                        <!-- View Courses Card -->
+                        <Button mnemonicParsing="false" onAction="#handleViewCourses" maxWidth="Infinity" alignment="CENTER_LEFT"
+                                style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-border-width: 0; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                            <graphic>
+                                <HBox spacing="20.0" alignment="CENTER_LEFT">
+                                    <children>
+                                        <StackPane>
+                                            <Circle fill="#f39c12" radius="25.0"/>
+                                            <Label text="📚" style="-fx-font-size: 20px; -fx-text-fill: white;"/>
+                                        </StackPane>
+                                        <VBox spacing="4.0">
+                                            <children>
+                                                <Label text="My Courses" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                                                <Label text="View registered courses" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <!-- Statistics and Chart Section -->
+                <VBox spacing="25.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <!-- Statistics Cards -->
+                        <HBox spacing="20.0" alignment="CENTER">
+                            <children>
+                                <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                                    <children>
+                                        <Label text="📚" style="-fx-font-size: 28px;"/>
+                                        <Label text="Registered" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                                        <Label fx:id="registeredCountLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                                    <children>
+                                        <Label text="⭐" style="-fx-font-size: 28px;"/>
+                                        <Label text="Total Credits" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                                        <Label fx:id="totalCreditsLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+                                    <children>
+                                        <Label text="📅" style="-fx-font-size: 28px;"/>
+                                        <Label text="Available" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                                        <Label fx:id="availableCountLabel" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Chart Section -->
+                        <VBox spacing="15.0">
+                            <children>
+                                <Label text="📊 Course Registration Overview" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                                <PieChart fx:id="courseChart" prefHeight="350.0" prefWidth="450.0"
+                                          style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</VBox>
